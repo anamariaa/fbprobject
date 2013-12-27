@@ -1,0 +1,95 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 27, 2013, 12:32:38 PM
+    Author     : aalionte
+*/
+
+.content{
+    height: 100%;
+
+    width: 100%;
+    overflow: hidden;
+}
+#slidder{
+    /* margin: 0 auto; */
+
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.prev{  
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+    font-size: 40px;
+    position: relative;
+
+    top: 50%;
+
+    text-decoration: none;
+
+}
+.next{
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+    font-size: 40px;
+
+    position: relative;
+
+    top: 50%;
+    left: 50%;
+    text-decoration: none;
+}
+.action{
+    background: rgba(0,0,0,0.2);
+}
+.images{
+    width: 100%;
+
+    overflow: hidden;
+    /* clear: both; */
+}
+.gallery{
+    list-style: none;
+    display: block;
+    /* margin: 0 auto; */
+    width: 100%;
+    padding: 0;
+    /* overflow: hidden; */
+}
+.gallery li{
+    /* width: 60px; */
+    margin: 5px;
+    float: left;
+}
+
+.gallery li img{
+    height: 40px;
+    width: 70px;
+}
+.selected{
+    border: 1px solid #000;
+}
+
+.activeImage img{
+    height: 340px;
+    width: 638px;
+}
+
+#popup_box  
+{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    width:10em;
+    height:10em;
+    margin-top: -5em; /*set to a negative number 1/2 of your height*/
+    margin-left: -5em; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    border:  2px solid black;
+    z-index:100; 
+
+}

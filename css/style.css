@@ -1,0 +1,400 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 4, 2013, 12:01:39 PM
+    Author     : aalionte
+*/
+
+/********************************************/
+/*          Reset page css                  */
+/********************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+	height: 100%;
+}
+
+.left{
+    float: left!important;
+    
+}
+
+.right{
+    float: right!important;
+    
+}
+
+
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+/********************************************/
+/*        End for reset page css            */
+/********************************************/
+
+html, body{
+    height: 100%;
+    min-height: 100%;
+}
+body {
+    padding: 0;
+    min-height: 100%;
+}
+.body{
+    height: 100%;
+    margin: 0 auto;
+    min-height: 100%;
+    width: 100%;
+}
+#main-content{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+
+/* Style for the menu elements*/
+
+.wrapper-menu{
+  height: 100%;
+  float: left;
+}
+#menu{
+    background: #161f29; 
+    float: left;
+    height: 100%;
+    list-style-type: none; 
+    padding-top: 20px;  
+    position: fixed;
+    width: 70px; 
+}
+#menu li{
+    float: left;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+#menu  a{
+    display: block;
+    min-height: 40px;
+    height: auto;
+    min-width: 40px;
+    width: auto ;
+    margin: 0 auto;
+}
+
+.active{
+    background: #16a085;
+    height: auto;
+    width: auto;
+}
+#about-me {
+    background: url("../images/icons/user.png")center no-repeat; 
+}
+#check-in{
+    background: url("../images/icons/map.png") center no-repeat;
+}
+#photos{
+    background: url("../images/icons/images.png") center no-repeat; 
+}
+#friends{
+    background: url("../images/icons/users.png") center no-repeat;
+}
+#messages{
+    background: url("../images/icons/mail.png") center no-repeat;
+}
+.unread{
+    background: #c0392b;
+    width: 15px;
+    height: 15px;
+    float: right;
+    position: absolute;
+    margin-top: -5px;
+    margin-left: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;  
+    border-radius: 3px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+}
+#twitter{
+    background: url("../images/icons/twitter.png") center no-repeat;
+}
+#facebook{
+    background: url("../images/icons/facebook.png") center no-repeat;
+}
+
+/**********************************************/
+/*      Style for the submenu elements        */
+/**********************************************/
+
+#submenu{
+    background: #16a085; 
+    border-right: 5px solid #14826c;
+    display: inline-block;
+    height: auto;
+    width: 300px; 
+    float: left;
+    margin-left: 70px;
+    padding: 30px 0px;
+
+    min-height: 100%;
+}
+.title h1{
+    color: #e1f3ee;
+    font-family: Arial;
+    font-size: 25px; 
+}
+.search-input{
+    background: #1abc9c;
+    border: none; 
+    display: block;
+    height: 36px; 
+    float: left;
+    width: 240px;
+}
+.search-input::-webkit-input-placeholder{
+    color: #e1f3ee;
+}
+.action{
+    background: #1abc9c;
+    display: table-cell;
+    width: 60px;
+    /* vertical-align: middle; */
+    text-align: center;
+    height: 38px;
+    padding: 0;
+}
+form{
+    float: left;
+    width: 88%;
+    padding: 0px 23px;
+    margin-bottom: 10px;
+}
+#searchButton{
+    background: url("../images/icons/search.png") 100% no-repeat;
+    border: none;
+    height: 38px;
+    width: 22px;
+
+    overflow: hidden;
+    line-height: 38px;
+}
+.friend-list{
+        overflow-y: auto;
+    overflow-x: hidden;
+}
+.friend-list a{
+    width: 93%;
+    display: block;
+    border-bottom: 1px solid #1bb99a;
+    font-size: 12px;
+    color: #fff;
+    text-decoration: none;
+    padding: 13px 0px;
+    font-family: Arial;
+    box-shadow: inset 0 -1px 0 #148f77;
+    padding-left: 23px;
+}
+.selected{
+    background: #148f77;
+}
+.slidder{
+    z-index: 1;
+    margin: 0 auto;
+    background: #14826c;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    line-height: 30px;
+    font-size: 12px;
+    font-family: Arial;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; 
+}
+
+/**********************************************/
+/*           Style for the content            */
+/**********************************************/
+.firstpage{
+    padding-left: 70px;
+}
+.content { 
+    background: #FFF; 
+    width: auto;  
+    overflow: hidden;
+    height: 100%;
+    padding-left: 15px;
+    height: auto;
+}
+.content-header{
+    width: 35%; 
+    margin-left: 18px;
+    margin-top: 20px;
+    float: left;
+    height: auto;
+}
+.content-header h1{
+    font-family:  Arial;
+    font-size: 25px;
+}
+.myphotos{
+    display: inline-block;
+    width: 60%;
+}
+.blank{
+    border: 1px solid #161f29;
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+    line-height: 1px;
+}
+.label{
+    font-family:  Arial;
+    font-size: 16px;
+}
+.input{ 
+    border-radius: 5px;
+    border: 1px solid #161f29;
+    line-height: 18px; 
+    margin-bottom: 10px;
+    width: 100%;
+}
+.photo{
+    min-height: 70px;
+    background: #e2e2e2;
+    width: 31%; 
+    height: auto;
+    border: 1px solid #000;
+    margin: 3px;
+    display: inline-block;
+    float: left;
+}
+
+#map_canvas{
+    width: 100%;
+    height: 100%;
+    margin:0px auto;
+    display:inline-block;
+}
+
+.friend-details{
+    width: 100%; 
+    margin-bottom: 20px;
+    height: 100%;
+    clear: both;
+    min-height: 160px;
+}
+.friend-details img{
+    height: 150px;
+    
+    width: 150px;
+}
+.work{
+    
+}
+.work h2{
+    font-family: Arial;
+    border-bottom: 1px solid #000;
+    margin-bottom: 5px;
+}
+
+/**************************************/
+/*      MEDIA QUERIES SECTION         */
+/**************************************/
+/*IPAD*/
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    #submenu{
+        width: 200px;
+    
+    }
+    form{
+        padding:  0px 10px;
+    }
+    .action{
+        width: 30px;
+    }
+    .search-input{
+        width: 150px;
+    }
+  .content-header {
+   width: 100%;
+  }
+}

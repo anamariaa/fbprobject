@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>My app</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <script src="js/libs/jquery/jquery.js"></script>
+        <script type="text/javascript" src="js/friendsManipulation.js"></script>
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <script>
+            var friendData = {};
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId: '564719286946835', // App ID
+                    channelURL: 'http://localhost:8383/',
+                    status: true, // check login status
+                    cookie: true, // enable cookies to allow the server to access the session
+                    oauth: true, // enable OAuth 2.0
+                    xfbml: true  // parse XFBML
+                });
+                FB.getLoginStatus(function(response) {
+                    if (response.status === 'connected') {
+                        FB.api('/me/friends', {
+                            fields: 'id,first_name,birthday,last_name,name,location,work,picture'
+                        }, function(response) {
+                            if (response && response.data) {
+                                facebookFriends(response.data).init();
+                            } else {
+                                console.log('Something goes wrong', response);
+                            }
+                        });
+                    }
+                });
+            };
+            // Load the SDK Asynchronously
+            (function(d) {
+                var js, id = 'facebook-jssdk';
+                if (d.getElementById(id)) {
+                    return;
+                }
+                js = d.createElement('script');
+                js.id = id;
+                js.async = true;
+                js.src = "//connect.facebook.net/en_US/all.js";
+                d.getElementsByTagName('head')[0].appendChild(js);
+            }(document));
+        </script>
+        <!-- Main menu -->
+        <div id="main-content">    
+            <nav class="wrapper-menu">
+                <ul id="menu">
+                    <li><a id="about-me" href="index.html"></a></li>
+                    <li><a id="check-in" href="checkin.html"></a></li>
+                    <li><a id="photos" href="friends.html"></a></li>
+                    <li  class="active"><a id="friends" href="friends.html"></a></li>
+                    <li><a id="messages" href="friends.html">
+                            <span class="unread">1</span>
+                        </a></li>
+                    <li><a id="twitter" href="friends.html"></a></li>
+                    <li><a id="facebook" href="friends.html"></a></li>
+                </ul>
+                <!-- Sub menu -->
+                <div id="submenu">
+                    <div class="title">
+                        <h1>Friends list</h1>
+                        <hr/>
+                    </div>
+                    <form method="POST">  
+                        <input class="search-input" id="searchInput" type="text" placeholder="Search...">
+                        <div class="action">
+                            <a id="searchButton"></a>
+                        </div>
+                    </form>
+                    <div class="clearfix"></div>
+                    <nav id="friend-list" class="friend-list">
+
+                    </nav> 
+
+                </div>
+
+                <div class="slidder-container">
+                    <a class="slidder" href="#">&#x25C0;</a>
+                </div>
+            </nav>
+
+
+            <!-- Content -->
+            <section class="content">
+
+                <!-- Left column -->
+                <div class="content-header">
+                    <h1>About friend one</h1>
+                    <hr class="blank"/>
+                    <div class="friend-details">
+                        <img class="friend-picture" align="left"/>
+                        <div class="friend-name"><span>Name: </span></div>
+                        <div class="friend-location"><span>Current city:  </span></div>
+                        <div class="work"></div>
+                    </div>
+                </div>
+
+
+                <!-- Right column -->
+                <div class="content-header myphotos">
+                    <h1>Friend one images</h1>
+                    <hr class="blank"/>
+                    <div class="photos">
+                        <div class="photo"></div>
+                        <div class="photo"></div>
+                        <div class="photo"></div>
+                        <div class="photo"></div>
+                        <div class="photo"></div>
+                        <div class="photo"></div>
+                        <div class="photo"></div>
+                        <div class="photo"></div>
+                        <div class="photo"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </body>
+</html>
