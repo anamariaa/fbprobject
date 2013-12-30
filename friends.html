@@ -6,8 +6,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/gallery.css">
+
         <script src="js/libs/jquery/jquery.js"></script>
+        <script src="js/search.js"></script>
         <script type="text/javascript" src="js/friendsManipulation.js"></script>
+        <script type="text/javascript" src="js/gallery.js"></script>
     </head>
     <body>
         <div id="fb-root"></div>
@@ -22,11 +26,27 @@
                     oauth: true, // enable OAuth 2.0
                     xfbml: true  // parse XFBML
                 });
+
+                function updateButton(response) {
+                    if (!response.authResponse) {
+                        console.log("SSSs00");
+                        //user is not connected to your app or logged out
+                        FB.login(function(response) {
+                            if (response.authResponse) {
+                                FB.api('/me', function(info) {
+                                    login(response, info);
+                                });
+                            }
+                        }, {scope: 'email,user_birthday,status_update,publish_stream,user_about_me'});
+
+                    }
+                }
+                ;
                 FB.getLoginStatus(function(response) {
+                    updateButton(response);
                     if (response.status === 'connected') {
-                        FB.api('/me/friends', {
-                            fields: 'id,first_name,birthday,last_name,name,location,work,picture'
-                        }, function(response) {
+                        FB.api('/me/friends', function(response) {
+                            console.log(response);
                             if (response && response.data) {
                                 facebookFriends(response.data).init();
                             } else {
@@ -108,16 +128,14 @@
                 <div class="content-header myphotos">
                     <h1>Friend one images</h1>
                     <hr class="blank"/>
-                    <div class="photos">
-                        <div class="photo"></div>
-                        <div class="photo"></div>
-                        <div class="photo"></div>
-                        <div class="photo"></div>
-                        <div class="photo"></div>
-                        <div class="photo"></div>
-                        <div class="photo"></div>
-                        <div class="photo"></div>
-                        <div class="photo"></div>
+                    <div class="gallery-content">
+                        <div class="activeImage"></div>
+                        <div class="gallery-images">
+                            <ul  id="gallery-list" class="gallery">
+
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
             </section>

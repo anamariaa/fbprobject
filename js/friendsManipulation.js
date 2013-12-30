@@ -1,3 +1,42 @@
+var friendPhotos = function(id) {
+    var photosStore = {};
+    var displayGallery = function() {
+        if (!photosStore.hasOwnProperty(id)) {
+            photosStore[id] = FB.api('/' + id + '/photos', function(response) {
+                if (response && response.data) {
+                    photosStore[id] = response.data;
+                    createGallery();
+                } else {
+                    console.log('Something goes wrong', response);
+                }
+            });
+        } else {
+            createGallery();
+        }
+    };
+    var createGallery = function() {
+        var listElem = document.getElementById('gallery-list');
+        document.getElementsByClassName("activeImage")[0].innerHTML = "";
+        listElem.innerHTML = "";
+        if (photosStore[id].length > 0) {
+            for (var iter in  photosStore[id]) {
+                var childElem = document.createElement("li");
+                var imgElem = document.createElement('img');
+                imgElem.setAttribute('src', photosStore[id][iter].source);
+                childElem.appendChild(imgElem);
+                listElem.appendChild(childElem);
+            }
+            gallery.init();
+        }
+        else {
+            console.log("no photos to share with you");
+        }
+
+
+    };
+    return displayGallery();
+};
+
 var facebookFriends = function(friendData) {
     return {
         init: function() {
@@ -9,17 +48,13 @@ var facebookFriends = function(friendData) {
             friends.search(criteria, initList.initList);
             var searchButton = document.getElementById("searchButton");
             searchButton.addEventListener("click", function() {
-                var criteria = {
-                    name: document.getElementById("searchInput").value.toLowerCase()
-                };
+                criteria.name = document.getElementById("searchInput").value.toLowerCase();
                 friends.search(criteria, initList.initList);
             });
 
             var searchInput = document.getElementById("searchInput");
             searchInput.addEventListener("keyup", function() {
-                var criteria = {
-                    name: document.getElementById("searchInput").value.toLowerCase()
-                };
+                criteria.name = document.getElementById("searchInput").value.toLowerCase();
                 friends.search(criteria, initList.initList);
             });
         }
@@ -27,7 +62,6 @@ var facebookFriends = function(friendData) {
 };
 
 function localFriendsStore(facebookData, maxResults) {
-    console.log(facebookData);
     var checkCriteria = function(friend, searchCriteria) {
         if (friend.toLowerCase().indexOf(searchCriteria) !== -1) {
             return true;
@@ -62,18 +96,7 @@ function localFriendsStore(facebookData, maxResults) {
             }
             callback(myFriends);
         }
-    }
-    ;
-}
-
-function getPhoto(id) {
-    FB.api('/' + id + '/photos', function(response) {
-        if (response && response.data) {
-            console.log(response);
-        } else {
-            console.log('Something goes wrong', response);
-        }
-    });
+    };
 }
 
 function friendsAction() {
@@ -87,7 +110,7 @@ function friendsAction() {
 
             this.setAttribute("class", "selected");
             document.getElementsByClassName("content-header")[0].children[0].textContent = "About " + friend.name;
-            getPhoto(friend.id);
+            friendPhotos(friend.id);
             document.getElementsByClassName("friend-name")[0].textContent = friend.name;
             if (friend.location !== null && friend.location !== undefined) {
                 document.getElementsByClassName("friend-location")[0].textContent = friend.location.name;

@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Gallery demo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link type="text/css" rel="stylesheet" href="css/gallery.css"/>
@@ -14,26 +14,25 @@ and open the template in the editor.
 
     </head>
     <body>
-        <div class="content">
-            <div id="slidder">
-                <div class="activeImage"></div>
-                <div class="actions">
-                    <a href="#" class="prev"><</a> 
-                    <a href="#"  class="next">></a>
-                </div>
-                <div class="images">
-                    <ul class="gallery">
-                        <li class="active"><img src="images/demo/Leaf.jpg" alt="leaf"/></li>
-                        <li><img src="images/demo/autumn.jpg" alt="leaf"/></li>
-                        <li><img src="images/demo/flowers.jpg" alt="leaf"/></li>
-                        <li><img src="images/demo/japan.jpg" alt="leaf"/></li>
-                        <li><img src="images/demo/lake.jpg" alt="leaf"/></li>
-                        <li><img src="images/demo/tree.jpg" alt="leaf"/></li>
-                        <li><img src="images/demo/water.jpg" alt="leaf"/></li>
-                        <li><img src="images/demo/winter.jpg" alt="leaf"/></li>
-                    </ul>
-                </div>
+        <div id="gallery-content" class="gallery-slidder">
+            <div class="activeImage"></div>
+            <div class="gallery-action">
+                <a href="#" class="prev"><</a> 
+                <a href="#"  class="next">></a>
             </div>
+            <div class="gallery-images">
+                <ul class="gallery">
+                    <li><img src="images/demo/Leaf.jpg" alt="leaf"/></li>
+                    <li><img src="images/demo/autumn.jpg" alt="leaf"/></li>
+                    <li><img src="images/demo/flowers.jpg" alt="leaf"/></li>
+                    <li><img src="images/demo/japan.jpg" alt="leaf"/></li>
+                    <li><img src="images/demo/lake.jpg" alt="leaf"/></li>
+                    <li><img src="images/demo/tree.jpg" alt="leaf"/></li>
+                    <li><img src="images/demo/water.jpg" alt="leaf"/></li>
+                    <li><img src="images/demo/winter.jpg" alt="leaf"/></li>
+                </ul>
+            </div>
+
         </div>
         <script src="js/gallery.js"></script>
     </body>

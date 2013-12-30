@@ -1,9 +1,9 @@
 var gallery = function() {
     var currentItem = 0;
-    var galleryElem = $('.gallery li');
-    var items = $('.gallery li').length;
+    var galleryElem, items;
+
     var _navigate = function() {
-        $('.actions a').on('click', function(e) {
+        $('.gallery-action a').on('click', function(e) {
             e.preventDefault();
             if ($(this).hasClass('prev')) {
                 currentItem = (--currentItem % items);
@@ -24,13 +24,29 @@ var gallery = function() {
         $('.activeImage img').attr('src', image);
 
     };
+    var createList = function(photos) {
+        if ($('.gallery-images').length < 0) {
+            $('.gallery-content').append('<ul class="gallery"></ul>');
+            photos.each(function() {
+                console.log(this);
+            });
+        }
+    };
     var init = function() {
+        galleryElem = $('#gallery-list li');
+        items = $('#gallery-list li').length;
+        if (!$('.gallery-content .gallery-action').html()) {
+            $('.gallery-content')
+                    .prepend('<div class="gallery-action"><a href="#" class="prev"><</a>' +
+                            '<a href="#"  class="next">></a></div>');
+        }
         _navigate();
         $('.activeImage').html('<img />');
         _showImage(galleryElem.eq(currentItem));
     };
     return {
-        init: init
+        init: init,
+        createList: createList
     };
 }();
 

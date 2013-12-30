@@ -8,15 +8,13 @@ and open the template in the editor.
     Author     : aalionte
 */
 
-.content{
+.gallery-content{
     height: 100%;
 
     width: 100%;
     overflow: hidden;
 }
-#slidder{
-    /* margin: 0 auto; */
-
+.gallery-slidder{
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -43,10 +41,10 @@ and open the template in the editor.
     left: 50%;
     text-decoration: none;
 }
-.action{
+.gallery-action{
     background: rgba(0,0,0,0.2);
 }
-.images{
+.gallery-images{
     width: 100%;
 
     overflow: hidden;
@@ -67,16 +65,16 @@ and open the template in the editor.
 }
 
 .gallery li img{
-    height: 40px;
-    width: 70px;
+    max-height: 40px;
+    max-width: 70px;
 }
-.selected{
+.gallery-selected{
     border: 1px solid #000;
 }
 
 .activeImage img{
-    height: 340px;
-    width: 638px;
+    max-height: 340px;
+    max-width: 638px;
 }
 
 #popup_box  
